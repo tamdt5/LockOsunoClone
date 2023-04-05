@@ -1,0 +1,137 @@
+body{
+    background-color: #f3f5f7 !important;
+}
+
+.col-sm-5 a{
+    transition: color 0.3s ease-in-out;
+}
+.col-sm-5 a:hover{
+    color:red;
+}
+
+.header{
+
+    display:block;
+    justify-content: center;
+}
+
+.header .header-main{
+    max-width:1280px;
+    display:flex;
+    justify-content: space-between;
+    height:100px;
+}
+
+.header-main img{
+    margin-top:20px;
+}
+
+.header-main .input-group{
+    margin:20px 50px;
+    width:580px;
+}
+.header-main .input-group input{
+height:52px;
+}
+.header-main .info{
+    margin:auto 150px;
+    font-size:16px;
+    font-weight:700;
+}
+
+.header-main .info a{
+    margin:20px;
+}
+
+.header-main .info i{
+    margin:20px;
+}
+
+.header .header-menu{
+    max-width:1280px;
+    display:flex;
+    justify-content: space-between;
+}
+
+
+/* ___ */
+.dropdown .dropdown-toggle{
+    padding-bottom:17px;
+}
+.header .menu{
+    background-color: #FAB703;
+    font-size:1em;
+    font-weight: 800;
+    height:44px;
+}
+
+.header-menu .col-sm-5 {
+    margin:10px 0px;
+    width:52%;
+}
+
+.header-menu .col-sm-5 a:first-child{
+    margin-left:66px;
+    
+}
+
+.header-menu .col-sm-5 a{
+    margin:10px;
+    
+}
+
+.header-menu .col-sm-4{
+    margin-top:7px;
+    
+}
+
+.header-menu .col-sm-4 a:first-child{
+    margin-right:15px;
+    
+}
+
+
+.dropdown-menu {
+    width:192px;
+    height:366px;
+}
+
+#carouselExampleDark{
+    display:block;
+    width:942px;
+    height:368px;
+    margin-left:270px;
+}
+
+.carousel-indicators button{
+    border-radius:50% !important;
+    height:12px !important;
+    width:12px !important; 
+    margin:5px !important;
+}
+
+.product-header img {
+    display:block;
+    transition: transform 0.2s ease-out; /* thêm transition để hình ảnh thu nhỏ dần */
+}
+
+.product-header img:hover{
+    transform: scale(1.1); /* phóng to hình ảnh khi hover vào */
+    object-fit: cover;
+}
+
+.product-header{
+    display:block;
+	overflow: hidden;
+}
+@media only screen and (max-width: 1104px) {
+    #carouselExampleDark{
+        width:50% !important;
+    }
+    .carousel-indicators{
+        margin-bottom: 40vh !important;;
+    }
+    .header-main .info{
+        margin-left:250px;
+    }
+  }
