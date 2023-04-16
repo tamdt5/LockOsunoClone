@@ -36,17 +36,13 @@ class DatabaseSeeder extends Seeder
                 'hinhanhsanpham2' => 'bietthu'.$i.' - Copy ('.$p.').webp',
                 'hinhanhsanpham3' => 'bietthu'.$i.' - Copy ('.$q.').webp',
                 'hinhanhsanpham4' => 'bietthu'.$i.' - Copy ('.$w.').webp',
-                'danhgia' => ($i+1),
-                'luotdanhgia' => ($i*100),
-                'giasanpham' => ($i+1).'000000',
-                'daban' => 50,
+                'giasanpham' => ($i*4).'000000',
                 'tinhnang' => 'Tính năng '.$i,
                 'delete' => 0,
-                'tonkho' => 100,
                 'theloai'=> 1,
-                'hidden' => 0,
                 'congnghe' => 'Nhật bản',
                 'thuonghieu' => 'ASANZO',
+                'created_at' => new \DateTime(),
                 'baohanh' => 12,
                 'lapdat' => 'toanquoc',
             ];
@@ -58,14 +54,10 @@ class DatabaseSeeder extends Seeder
                 'hinhanhsanpham2' => 'khachsan'.$i.' - Copy ('.$p.').webp',
                 'hinhanhsanpham3' => 'khachsan'.$i.' - Copy ('.$q.').webp',
                 'hinhanhsanpham4' => 'khachsan'.$i.' - Copy ('.$w.').webp',
-                'danhgia' => ($i+1),
-                'luotdanhgia' => ($i*100),
-                'giasanpham' => ($i+1).'000000',
+                'created_at' => new \DateTime(),
+                'giasanpham' => ($i*4).'000000',
                 'delete' => 0,
-                'daban' => 20,
-                'tonkho' => 170,
                 'theloai'=> 2,
-                'hidden' => 0,
                 'congnghe' => 'Nhật bản',
                 'thuonghieu' => 'ASANZO',
                 'baohanh' => 12,
@@ -80,14 +72,10 @@ class DatabaseSeeder extends Seeder
                 'hinhanhsanpham2' => 'thongminh'.$i.' - Copy ('.$p.').webp',
                 'hinhanhsanpham3' => 'thongminh'.$i.' - Copy ('.$q.').webp',
                 'hinhanhsanpham4' => 'thongminh'.$i.' - Copy ('.$w.').webp',
-                'danhgia' => ($i+1),
-                'luotdanhgia' => ($i*100),
-                'giasanpham' => ($i+1).'000000',
+                'giasanpham' => ($i*4).'000000',
                 'delete' => 0,
-                'daban' => 10,
-                'tonkho' => 100,
                 'theloai'=> 3,
-                'hidden' => 0,
+                'created_at' => new \DateTime(),
                 'congnghe' => 'Nhật bản',
                 'thuonghieu' => 'ASANZO',
                 'baohanh' => 12,
@@ -101,19 +89,33 @@ class DatabaseSeeder extends Seeder
                 'hinhanhsanpham2' => 'vantay'.$i.' - Copy ('.$p.').webp',
                 'hinhanhsanpham3' => 'vantay'.$i.' - Copy ('.$q.').webp',
                 'hinhanhsanpham4' => 'vantay'.$i.' - Copy ('.$w.').webp',
-                'daban' => 5,
-                'luotdanhgia' => ($i*100),
                 'delete' => 0,
-                'tonkho' => 100,
-                'danhgia' => ($i+1),
-                'giasanpham' => ($i+1).'000000',
+                'created_at' => new \DateTime(),
+                'giasanpham' => ($i*4).'000000',
                 'theloai'=> 4,
-                'hidden' => 0,
                 'congnghe' => 'Nhật bản',
                 'thuonghieu' => 'ASANZO',
                 'baohanh' => 12,
                 'lapdat' => 'toanquoc',
             ];
+            $product[]=[
+                'tensanpham' => 'Khóa Vân Tay '.$i,
+                'tinhnang' => 'Tính năng '.$i,
+                'masanpham' => 'OSN',
+                'hinhanhsanpham1' => 'vantay'.$i.' - Copy ('.$o.').webp',
+                'hinhanhsanpham2' => 'vantay'.$i.' - Copy ('.$p.').webp',
+                'hinhanhsanpham3' => 'vantay'.$i.' - Copy ('.$q.').webp',
+                'hinhanhsanpham4' => 'vantay'.$i.' - Copy ('.$w.').webp',
+                'delete' => 0,
+                'created_at' => new \DateTime(),
+                'giasanpham' => '0',
+                'theloai'=> 4,
+                'congnghe' => 'Nhật bản',
+                'thuonghieu' => 'ASANZO',
+                'baohanh' => 12,
+                'lapdat' => 'toanquoc',
+            ];
+            
             $cskh[]=[
                 'sdt' => '077275253'.$i,
                 'tuvan' => 0,
@@ -176,6 +178,13 @@ class DatabaseSeeder extends Seeder
                 'icon'=>'fa-solid fa-bars',
             'hidden' => 0,
         ];
+        $category[]=[
+            'tentheloai' => 'Tin tuyển dụng',
+            'type' => 'tuyendung',
+            'delete' => 0,
+            'icon'=>'fa-solid fa-bars',
+            'hidden' => 0,
+        ];
         for($i=1;$i<=4;$i++)
         {
             $new[]=[
@@ -185,29 +194,42 @@ class DatabaseSeeder extends Seeder
                 'noidung' => 'nội dung bài viết của "Những lưu ý khi lắp khóa điện tử số"'.$i,
                 'theloai' => 7,
                 'hidden' => 0,
+                'created_at' => new \DateTime(),
             ];
             $new[]=[
                 'tieude' => 'Giải thưởng ISO',
                 'delete' => 0,
                 'hinhanhbaiviet' => 'giaithuong'.$i.'.webp',
-                'noidung' => 'nội dung giải thưởng"'.$i,
+                'noidung' => 'nội dung giải thưởng thứ '.$i,
                 'theloai' => 5,
+                'created_at' => new \DateTime(),
                 'hidden' => 0,
             ];
             $new[]=[
                 'tieude' => 'Khôi phục cài đặt gốc khóa KS OSN số '.$i,
                 'hinhanhbaiviet' => 'video'.$i.'.webp',
                 'delete' => 0,
-                'noidung' => 'nội dung bài viết của "Khôi phục cài đặt gốc khóa KS OSN"'.$i,
+                'noidung' => 'nội dung Khôi phục cài đặt gốc khóa KS OSN số "'.$i,
                 'theloai' => 6,
+                'created_at' => new \DateTime(),
                 'hidden' => 0,
             ];
             $new[]=[
                 'tieude' => 'Hình Ảnh Thực Tế Số  '.$i,
                 'hinhanhbaiviet' => 'hinhanhthucte'.$i.'.webp',
                 'delete' => 0,
-                'noidung' => 'nội dung Hình Ảnh Thực Tế Số "'.$i,
+                'noidung' => 'nội dung Hình Ảnh Thực Tế Số '.$i,
                 'theloai' => 8,
+                'created_at' => new \DateTime(),
+                'hidden' => 0,
+            ];
+            $new[]=[
+                'tieude' => 'Bản tin tuyển dụng số '.$i,
+                'hinhanhbaiviet' => 'tuyendung'.$i.'.webp',
+                'delete' => 0,
+                'noidung' => 'nội dung tuyển dụng Số '.$i,
+                'theloai' => 9,
+                'created_at' => new \DateTime(),
                 'hidden' => 0,
             ];
         }
@@ -218,6 +240,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'thanhtamdang103@gmail.com',
                 'danhgia' => 5,
                 'sanpham' => 1,
+                'created_at' => new \DateTime(),
                 'baiviet' => null,
        ];
        $feedback []=[
@@ -227,9 +250,10 @@ class DatabaseSeeder extends Seeder
                 'danhgia' => 5,
             'email' => 'thanhtamdang103@gmail.com',
                 'sanpham' => 1,
+                'created_at' => new \DateTime(),
                 'baiviet' => null,
         ];
-        for($i=0;$i<=10;$i++)
+        for($i=1;$i<=20;$i++)
         {
             $feedback []=[
                 'comment' => 'Bài viết cũng được',
@@ -238,6 +262,17 @@ class DatabaseSeeder extends Seeder
                 'email' => 'thanhtamdang103@gmail.com',
                 'danhgia' => 5,
                 'sanpham' => null,
+                'created_at' => new \DateTime(),
+                'baiviet' => 2,
+            ];
+            $feedback []=[
+                'comment' => 'Bài viết cũng được',
+                'delete' => 0,
+                'hoten' => 'Đặng Thanh Tâm',
+                'email' => 'thanhtamdang103@gmail.com',
+                'danhgia' => 5,
+                'sanpham' => null,
+                'created_at' => new \DateTime(),
                 'baiviet' => 2,
             ];
             $feedback []=[
@@ -247,7 +282,58 @@ class DatabaseSeeder extends Seeder
                 'hoten' => 'Đặng Thanh Tâm',
                 'email' => 'thanhtamdang103@gmail.com',
                 'baiviet' => null,
-                'sanpham' => 2,
+                'created_at' => new \DateTime(),
+                'sanpham' => $i,
+            ];
+            $feedback []=[
+                'comment' => 'Sản phẩm rất OK',
+                'danhgia' => 5,
+                'delete' => 0,
+                'hoten' => 'Đặng Thanh Tâm',
+                'email' => 'thanhtamdang103@gmail.com',
+                'baiviet' => null,
+                'created_at' => new \DateTime(),
+                'sanpham' => $i,
+            ];
+            $feedback []=[
+                'comment' => 'Sản phẩm tốt',
+                'danhgia' => 4,
+                'delete' => 0,
+                'hoten' => 'Đặng Thanh Tâm',
+                'email' => 'thanhtamdang103@gmail.com',
+                'baiviet' => null,
+                'created_at' => new \DateTime(),
+                'sanpham' => $i,
+            ];
+            $feedback []=[
+                'comment' => 'Sản phẩm cũng dc',
+                'danhgia' => 3,
+                'delete' => 0,
+                'hoten' => 'Đặng Thanh Tâm',
+                'email' => 'thanhtamdang103@gmail.com',
+                'baiviet' => null,
+                'created_at' => new \DateTime(),
+                'sanpham' => $i,
+            ];
+            $feedback []=[
+                'comment' => 'Sản phẩm tệ',
+                'danhgia' => 2,
+                'delete' => 0,
+                'hoten' => 'Đặng Thanh Tâm',
+                'email' => 'thanhtamdang103@gmail.com',
+                'baiviet' => null,
+                'sanpham' => $i,
+                'created_at' => new \DateTime(),
+            ];
+            $feedback []=[
+                'comment' => 'Sản phẩm rất tệ',
+                'danhgia' => 1,
+                'delete' => 0,
+                'hoten' => 'Đặng Thanh Tâm',
+                'email' => 'thanhtamdang103@gmail.com',
+                'created_at' => new \DateTime(),
+                'baiviet' => null,
+                'sanpham' => $i,
             ];
         }
         for($i=1;$i<=2;$i++)
@@ -261,12 +347,23 @@ class DatabaseSeeder extends Seeder
                 'avatar' => 'hinh1.jpg'
             ];
         }
-
+        // for($i=1;$i<=5;$i++)
+        // {
+        //     $order []=[
+        //         'email' => 'thanhtamdang10'.$i.'@gmail.com',
+        //         'hoten' => 'Dang Thanh Tam',
+        //         'diachi' => 'HCM',
+        //         'masanpham' => $i,
+        //         'sdt' => '0938774389',
+        //         'note' => 'hinh1.jpg'
+        //     ];
+        // }
         DB::table('category')->insert($category);
         DB::table('product')->insert($product);
         DB::table('cskh')->insert($cskh);
         DB::table('new')->insert($new);
         DB::table('feedback')->insert($feedback);
         DB::table('users')->insert($user);
+        // DB::table('order')->insert($order);
     }
 }

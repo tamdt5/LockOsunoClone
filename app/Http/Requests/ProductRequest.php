@@ -26,9 +26,8 @@ class ProductRequest extends FormRequest
         return [
             'tensanpham' => 'required|unique:product',
             'hinhanhsanpham' => 'required',
-            'tonkho' => 'required',
             'thongsokythuat' => 'required',
-            'noidung' => 'required',
+            'noidungsanpham' => 'required',
             'tinhnang' => 'required',
         ];
     }
@@ -39,7 +38,6 @@ class ProductRequest extends FormRequest
             'tensanpham.required' => 'Vui lòng nhập tên sản phẩm',
             'tensanpham.unique' => 'Đã tồn tại sản phẩm này',
             'hinhanhsanpham.required' => 'Vui lòng nhập hình ảnh sản phẩm',
-            'tonkho.required' => 'Vui lòng nhập số lượng nhập kho',
         ];
     }
 }

@@ -1,14 +1,15 @@
 <html lang="vi" class="js" style="height: 100%;">
-
+   
    <!--<![endif]-->
    @include('.website.partials.head')
    <body data-rsssl="1" class="home page-template-default page page-id-16 theme-flatsome ot-vertical-menu woocommerce-js yith-wcan-pro woo-variation-swatches wvs-theme-mica wvs-theme-child-flatsome wvs-style-squared wvs-attr-behavior-blur wvs-tooltip wvs-css wvs-show-label lightbox nav-dropdown-has-arrow" style="position: relative; min-height: 100%; top: 0px;">
       <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
       <div id="wrapper">
          <header id="header" class="header has-sticky sticky-jump">
-            @include('.website.partials.header-body')
+            @include('.website.partials.head-static')
          </header>
          <main id="main" class="">
+            
             <div id="content" class="content-area page-wrapper" role="main">
                <div class="row row-main">
                   <div class="large-12 col">
@@ -19,9 +20,15 @@
                            </div>
                            <div class="section-content relative">
                               <div class="container section-title-container see-all">
-                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main" style="font-size:80%;"><i class="far fa-star"></i>Sản phẩm bán chạy</span><b></b><a href="{{route('website.sanphambanchay')}}" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
+                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main" style="font-size:80%;"><i class="far fa-star"></i>Sản phẩm bán chạy</span><b></b><a href="{{route('website.sanphambanchay',['tentheloai' => 'banchay'])}}" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
                               </div>
                               <div class="row  equalize-box large-columns-4 medium-columns-3 small-columns-2 row-small">
+                                 @if (Session::get('payment_success'))
+                                 <div class="alert alert-success alert-dismissible" style="background-color: green;">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h5 style="color:white;font-weight:700;font-size:19px;"><i class="icon fas fa-check" style="color:white;font-weight:700;font-size:19px;"></i> Đã thanh toán thành công <br> {{ Session::get('payment_success') }}</h5>
+                                 </div>
+                                 @endif
                                  @foreach($spbanchay as $item)
                                  <div class="col">
                                     <div class="col-inner">
@@ -69,8 +76,7 @@
                               }
                            </style>
                         </section>
-                        @foreach($danhsach as $item)
-                        @if(($item['type'])=='sanpham')
+                        @foreach($sanpham as $item)
                         <section class="section sp-chay pd0 title-sp home-pr" id="section_308047023">
                            <div class="bg section-bg fill bg-fill  bg-loaded">
                            </div>
@@ -88,7 +94,7 @@
                                        <div class="product-small box has-hover box-normal box-text-bottom">
                                           <div class="box-image">
                                              <div class="">
-                                                <a href="https://osuno.com.vn/mua/khoa-van-tay-mo-qua-app-osn-3306/">
+                                                <a href="{{route('website.detailProduct',['tensanpham' => $sanpham->tensanpham])}}">
                                                 <img width="1000" height="1000" src="{{asset('images/sanpham/'.$sanpham->hinhanhsanpham)}}" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="{{asset('images/sanpham/'.$sanpham->hinhanhsanpham)}}" sizes="(max-width: 1000px) 100vw, 1000px">									
                                              </a>
                                              </div>
@@ -99,7 +105,7 @@
                                           </div>
                                           <div class="box-text text-center">
                                              <div class="title-wrapper">
-                                                <p class="name product-title" style="height: 41px;"><a href="https://osuno.com.vn/mua/khoa-van-tay-mo-qua-app-osn-3306/">{{$sanpham->tensanpham}}</a></p>
+                                                <p class="name product-title" style="height: 41px;"><a href="{{route('website.detailProduct',['tensanpham' => $sanpham->tensanpham])}}">{{$sanpham->tensanpham}}</a></p>
                                              </div>
                                              <div class="price-wrapper" style="height: 52.7969px;">
                                                 <div style="text-align:center;"title="Rated 5 out of 5">
@@ -113,7 +119,15 @@
                                                       @endphp
                                                    </span>
                                                 </div>
-                                                <span class="price"><span class="woocommerce-Price-amount amount"><bdi>@php echo number_format($sanpham->giasanpham) @endphp<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span></span>
+                                                <span class="price"><span class="woocommerce-Price-amount amount"><bdi>@if($sanpham->giasanpham=='0')
+                                                   
+                                                     Liên hệ
+                                                   
+                                                   @else 
+                                                   
+                                                      {{(number_format($sanpham->giasanpham))}}đ
+                                                   
+                                                 @endif</bdi></span></span>
                                              </div>
                                           </div>
                                        </div>
@@ -129,7 +143,8 @@
                               }
                            </style>
                         </section>
-                        @endif
+                        @endforeach
+                        @foreach($danhsach as $item)
                         @if(($item['type'])=='giaithuong')
                         <section class="section pd0" id="section_643383816">
                               <div class="bg section-bg fill bg-fill  bg-loaded">
@@ -213,13 +228,13 @@
                            </div>
                            <div class="section-content relative">
                               <div class="container section-title-container see-all">
-                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main"><i class="fas fa-play"></i>{{$item['name']}}</span><b></b><a href="https://osuno.com.vn/category/video/" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
+                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main"><i class="fas fa-play"></i>{{$item['name']}}</span><b></b><a href="{{route('website.categoryNews',['type' => 'video'])}}" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
                               </div>
                               <div class="row large-columns-4 medium-columns-1 small-columns-1 row-small">
                                  @foreach($item['new'] as $new)
                                  <div class="col post-item has-post-icon">
                                     <div class="col-inner">
-                                       <a href="https://osuno.com.vn/khoi-phuc-cai-dat-goc-khoa-ks-osn-3381/" class="plain">
+                                       <a href="{{route('website.detailNews',['id'=>$new->id])}}" class="plain">
                                           <div class="box box-normal box-text-bottom box-blog-post has-hover">
                                              <div class="box-image">
                                                 <div class="image-cover" style="padding-top:65%;">
@@ -258,13 +273,13 @@
                            </div>
                            <div class="section-content relative">
                               <div class="container section-title-container see-all">
-                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main"><i class="fas fa-newspaper"></i>{{$item['name']}}</span><b></b><a href="https://osuno.com.vn/category/tin-tuc/" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
+                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main"><i class="fas fa-newspaper"></i>{{$item['name']}}</span><b></b><a href="{{route('website.categoryNews',['type' => 'tintuc'])}}" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
                               </div>
                               <div class="row large-columns-4 medium-columns-1 small-columns-1 row-small">
                                  @foreach($item['new'] as $new)
                                  <div class="col post-item">
                                     <div class="col-inner">
-                                       <a href="https://osuno.com.vn/nhung-luu-y-khi-lap-khoa-dien-tu/" class="plain">
+                                       <a href="{{route('website.detailNews',['id' => $new->id])}}" class="plain">
                                           <div class="box box-normal box-text-bottom box-blog-post has-hover">
                                              <div class="box-image">
                                                 <div class="image-cover" style="padding-top:65%;">
@@ -299,13 +314,13 @@
                            </div>
                            <div class="section-content relative">
                               <div class="container section-title-container see-all">
-                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main"><i class="fas fa-bars"></i>{{$item['name']}}</span><b></b><a href="https://osuno.com.vn/category/du-an/" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
+                                 <h3 class="section-title section-title-normal"><b></b><span class="section-title-main"><i class="fas fa-bars"></i>{{$item['name']}}</span><b></b><a href="{{route('website.categoryNews',['type' =>'hinhanhthucte'])}}" target="">Xem tất cả<i class="icon-angle-right"></i></a></h3>
                               </div>
                               <div class="row blog-content-album large-columns-4 medium-columns-1 small-columns-1 row-small">
                                  @foreach($item['new'] as $new)
                                  <div class="col post-item">
                                     <div class="col-inner">
-                                       <a href="https://osuno.com.vn/thu-cu-doi-moi-khoa-van-tay/" class="plain">
+                                       <a href="{{route('website.detailNews',['id'=>$new->id])}}" class="plain">
                                           <div class="box box-normal box-text-bottom box-blog-post has-hover">
                                              <div class="box-image">
                                                 <div class="image-cover" style="padding-top:65%;">
@@ -350,7 +365,7 @@
          <div class="sidebar-menu no-scrollbar ">
             <ul class="nav nav-sidebar  nav-vertical nav-uppercase">
                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-2975"><a href="https://osuno.com.vn/" aria-current="page">Trang chủ</a></li>
-               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977"><a href="https://osuno.com.vn/gioi-thieu-cong-tnhh-phat-trien-cong-nghe-long-tien-hai/">Giới thiệu</a></li>
+               <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977"><a href="{{route('website.gioithieu')}}">Giới thiệu</a></li>
                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2979"><a href="https://osuno.com.vn/category/tin-tuc/">Tin tức</a></li>
                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3427"><a href="https://osuno.com.vn/category/video/">Video</a></li>
                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2980"><a href="https://osuno.com.vn/category/tuyen-dung/">Tuyển dụng</a></li>

@@ -7,7 +7,7 @@
             <div class="page-title-inner flex-row  medium-flex-wrap container">
                 <div class="flex-col flex-grow medium-text-center">
                     <div class="is-large">
-                        <nav class="woocommerce-breadcrumb breadcrumbs uppercase"><a href="https://osuno.com.vn">Trang chủ</a> <span class="divider">/</span> <a href="https://osuno.com.vn/mua/">Cửa hàng</a> <span class="divider">/</span> Khóa vân tay cho cửa nhà biệt thự</nav>
+                        <nav class="woocommerce-breadcrumb breadcrumbs uppercase"><a href="{{route('website.index')}}">Trang chủ</a> <span class="divider">/</span> <a href="{{route('website.sanphambanchay')}}">Cửa hàng</a> <span class="divider">/</span> {{$product_category[0]->tentheloai}}</nav>
                     </div>
                     <div class="category-filtering category-filter-row show-for-medium">
                         <a href="#" data-open="#shop-sidebar" data-visible-after="true" data-pos="left" class="filter-button uppercase plain">
@@ -45,23 +45,26 @@
                             <div class="is-divider small"></div>
                             <ul class="yith-wcan-list-price-filter">
                                 <li class="price-item">
-                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.detailCategory',['tentheloai'=>null,'min' =>0,'max' => 7])}}">
+                                    @php
+                                        $tentheloai = $product_category[0]->tentheloai;
+                                    @endphp
+                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.filter',['tentheloai' => $tentheloai,'range'=>07])}}">
                                     Từ: <span class="woocommerce-Price-amount amount"><bdi>0<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span> đến: <span class="woocommerce-Price-amount amount"><bdi>7,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span>                </a>
                                 </li>
                                 <li class="price-item">
-                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.detailCategory',['tentheloai'=>null,'min' =>7,'max' => 10])}}">
+                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.filter',['tentheloai' => $tentheloai,'range'=>710])}}">
                                     Từ: <span class="woocommerce-Price-amount amount"><bdi>7,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span> đến: <span class="woocommerce-Price-amount amount"><bdi>10,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span>                </a>
                                 </li>
                                 <li class="price-item">
-                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.detailCategory',['tentheloai'=>null,'min' =>10,'max' => 12])}}">
+                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.filter',['tentheloai' => $tentheloai,'range'=>1012])}}">
                                     Từ: <span class="woocommerce-Price-amount amount"><bdi>10,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span> đến: <span class="woocommerce-Price-amount amount"><bdi>12,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span>                </a>
                                 </li>
                                 <li class="price-item">
-                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.detailCategory',['tentheloai'=>null,'min' =>12,'max' => 15])}}">
+                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.filter',['tentheloai' => $tentheloai,'range'=>1215])}}">
                                     Từ: <span class="woocommerce-Price-amount amount"><bdi>12,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span> đến: <span class="woocommerce-Price-amount amount"><bdi>15,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span>                </a>
                                 </li>
                                 <li class="price-item">
-                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.detailCategory',['tentheloai'=>null,'min' =>15,'max' => 25])}}">
+                                    <a class="yith-wcan-price-link yith-wcan-price-filter-list-link" href="{{route('website.filter',['tentheloai' => $tentheloai,'range'=>1525])}}">
                                     Từ: <span class="woocommerce-Price-amount amount"><bdi>15,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span> đến: <span class="woocommerce-Price-amount amount"><bdi>25,000,000<span class="woocommerce-Price-currencySymbol">₫</span></bdi></span>                </a>
                                 </li>
                             </ul>
@@ -101,18 +104,19 @@
                                     <div class="Popover__Content">
                                         <div class="Popover__ValueList" data-scrollable="">
                                             <span class="sxt">Sắp xếp theo: </span>
-                                            <button class="Popover__Value  Heading Link Link--primary u-h6" rel="menu_order">
-                                            Thứ tự mặc định
-                                            </button>
-                                            <button class="Popover__Value  Heading Link Link--primary u-h6" rel="date">
-                                            Mới nhất
-                                            </button>
-                                            <button class="Popover__Value  Heading Link Link--primary u-h6" rel="price">
-                                            GIÁ - thấp tới cao
-                                            </button>
-                                            <button class="Popover__Value  Heading Link Link--primary u-h6" rel="price-desc">
-                                            GIÁ - cao tới thấp
-                                            </button>
+                                            <a href="{{route('website.filter',['tentheloai' => $tentheloai, 'range' => 'macdinh'])}}" style="background-color:white;"  rel="menu_order">
+                                                Thứ tự mặc định
+                                            </a> <span> | </span>
+                                            
+                                            <a href="{{route('website.filter',['tentheloai' => $tentheloai, 'range' => 'moinhat'])}}" style="background-color:white;"  rel="menu_order">
+                                                Mới nhất
+                                            </a> <span> | </span>
+                                            <a href="{{route('website.filter',['tentheloai' => $tentheloai, 'range' => 'thapcao'])}}" style="background-color:white;"  rel="menu_order">
+                                                GIÁ - thấp tới cao
+                                            </a> <span> | </span>
+                                            <a href="{{route('website.filter',['tentheloai' => $tentheloai, 'range' => 'caothap'])}}" style="background-color:white;"  rel="menu_order">
+                                                GIÁ - cao tới thấp
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

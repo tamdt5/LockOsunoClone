@@ -87,7 +87,7 @@
                       <p>Điện thoại: 1900.9292 . Email: hotro@osuno.com.vn</p>
                       <p>
                          <img src="https://images.dmca.com/Badges/_dmca_premi_badge_4.png?ID=ca538d16-012d-4f4c-ae70-7db470628310" alt="DMCA.com Protection Status"><!--<script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>--> <!-- Histats.com(div with counter) -->
-                      <noscript><a href="/" target="_blank" rel="noopener noreferrer"><imgsrc="//sstatic1.histats.com/0.gif?4399715&101" alt="" border="0"></a></noscript>
+                      <noscript><a href="/" target="_blank" rel="noopener noreferrer"><img src="//sstatic1.histats.com/0.gif?4399715&101" alt="" border="0"></a></noscript>
                       <br><!-- Histats.comEND--></p>
                    </div>
                 </div>

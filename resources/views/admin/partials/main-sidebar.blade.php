@@ -79,6 +79,22 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{route('admin.new.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Tin tức
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin.order.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Hóa đơn
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

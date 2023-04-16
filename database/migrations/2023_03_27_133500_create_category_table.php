@@ -37,13 +37,9 @@ return new class extends Migration
             $table->string('thuonghieu');
             $table->tinyInteger('baohanh');
             $table->string('lapdat');
-            $table->string('danhgia');
-            $table->bigInteger('luotdanhgia');
             $table->boolean('delete')->default(0);
             $table->bigInteger('giasanpham');
             $table->boolean('hidden');
-            $table->integer('daban')->default(0);
-            $table->integer('tonkho');
             $table->unsignedBigInteger('theloai')->nullable();
             $table->foreign('theloai')->references('id')->on('category');
             $table->timestamps();
@@ -80,6 +76,20 @@ return new class extends Migration
             $table->boolean('tuvan');
             $table->unsignedBigInteger('sanpham')->nullable();
             $table->foreign('sanpham')->references('id')->on('product');
+            $table->timestamps();
+        });
+        Schema::create('order', function (Blueprint $table) {
+            $table->id();
+            $table->string('hoten');
+            $table->string('diachi')->nullable();
+            $table->string('tensanpham');
+            $table->string('sdt');
+            $table->string('quantity');
+            $table->string('price');
+            $table->string('totalprice');
+            $table->boolean('status')->default(0);
+            $table->string('email');
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

@@ -31,12 +31,12 @@
                     </div>
                     <div class="row">
                         <div class="form-group"style="width:50%">
-                            <label>Số lượng nhập kho</label>
-                            <input  style="width:250px;" type="number" name="tonkho" class="form-control" step="10" value=''>
-                        </div> 
-                        <div class="form-group"style="width:50%">
                             <label>Giá sản phẩm</label>
                             <input id="giasanpham" style="width:250px;" type="number" name="giasanpham" class="form-control" step="500000" value=''>
+                        </div> 
+                        <div class="form-group"style="width:50%">
+                            <label>Mã sản phẩm</label>
+                            <input id="masanpham" style="width:250px;" type="text" name="masanpham" class="form-control"  value=''>
                         </div> 
                     </div>
                     <div class="row">
@@ -48,14 +48,80 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <div class="col-md-12 mb-2">
-                                <img id="preview-image-before-upload" src="{{asset('images/default.jpg')}}"
-                                    alt="Hãy nhập hình ảnh" style="max-height: 350px;border-radius:20px;">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @php
+                                    $image = !empty($products->hinhanhsanpham) ? $products->hinhanhsanpham : 'default.jpg';
+                                @endphp
+                                <label>Hình ảnh sản phẩm chính hiện tại</label>
+                                <div class="form-group">
+                                    <div class="col-md-12 mb-2">
+                                        <img class="preview-image-before-upload1" src="{{asset('images/sanpham/'.$image)}}"
+                                            alt="Hãy nhập hình ảnh" style="max-height: 350px;border-radius:20px;width:50%">
+                                    </div>
+                                </div>
                             </div>
-                            <label>Hình ảnh sản phẩm</label>
-                            <input type="file" id="image" class="form-control" name="hinhanhsanpham">
+                            <div class="form-group">
+                                <label>Đổi hình ảnh sản phẩm chính</label>
+                                <input type="file" class="image1" aria-describedby="inputGroupFileAddon04" aria-label="Upload" class="form-control" name="hinhanhsanpham">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @php
+                                    $image = !empty($products->hinhanhsanpham2) ? $products->hinhanhsanpham2 : 'default.jpg';
+                                @endphp
+                                <label>Hình ảnh sản phẩm 2</label>
+                                <div class="form-group">
+                                    <div class="col-md-12 mb-2">
+                                        <img class="preview-image-before-upload2" src="{{asset('images/sanpham/'.$image)}}"
+                                            alt="Hãy nhập hình ảnh" style="max-height: 350px;border-radius:20px;width:50%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Đổi hình ảnh sản phẩm 2</label>
+                                <input type="file" class="image2" aria-describedby="inputGroupFileAddon04" aria-label="Upload" class="form-control" name="hinhanhsanpham2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @php
+                                    $image = !empty($products->hinhanhsanpham3) ? $products->hinhanhsanpham3 : 'default.jpg';
+                                @endphp
+                                <label>Hình ảnh sản phẩm 3</label>
+                                <div class="form-group">
+                                    <div class="col-md-12 mb-2">
+                                        <img class="preview-image-before-upload3" src="{{asset('images/sanpham/'.$image)}}"
+                                            alt="Hãy nhập hình ảnh" style="max-height: 350px;border-radius:20px;width:50%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Đổi hình ảnh sản phẩm 3</label>
+                                <input type="file" class="image3" aria-describedby="inputGroupFileAddon04" aria-label="Upload" class="form-control" name="hinhanhsanpham3">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @php
+                                    $image = !empty($products->hinhanhsanpham4) ? $products->hinhanhsanpham4 : 'default.jpg';
+                                @endphp
+                                <label>Hình ảnh sản phẩm thứ 4</label>
+                                <div class="form-group">
+                                    <div class="col-md-12 mb-2">
+                                        <img class="preview-image-before-upload4" src="{{asset('images/sanpham/'.$image)}}"
+                                            alt="Hãy nhập hình ảnh" style="max-height: 350px;border-radius:20px;width:50%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Đổi hình ảnh sản phẩm 4</label>
+                                <input type="file" class="image4" aria-describedby="inputGroupFileAddon04" aria-label="Upload" class="form-control" name="hinhanhsanpham4">
+                            </div>
                         </div>
                     </div>
                </div>
@@ -91,7 +157,7 @@
                         <div class="form-group" style="width:50%">
                             <label>Lắp đặt</label>
                             <select class="form-control" name="lapdat" style="width:250px;">
-                                <option value="lapdat" {{ old('lapdat') == 'toanquoc' ? 'selected' : '' }}>Toàn quốc</option>
+                                <option value="toanquoc" {{ old('lapdat') == 'toanquoc' ? 'selected' : '' }}>Toàn quốc</option>
                             </select>
                         </div>
                     </div>
@@ -114,13 +180,73 @@
 <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script>
     $(document).ready(function (e) {
-     $('#image').change(function(){
+     
+       
+     $('.image1').change(function(){
+              
       let reader = new FileReader();
+    
       reader.onload = (e) => { 
-        $('#preview-image-before-upload').attr('src', e.target.result); 
+    
+        $('.preview-image-before-upload1').attr('src', e.target.result); 
       }
+    
       reader.readAsDataURL(this.files[0]); 
+     
      });
+    
+     $('.image1').change(function(){
+              
+              let reader = new FileReader();
+            
+              reader.onload = (e) => { 
+            
+                $('.preview-image-before-upload1').attr('src', e.target.result); 
+              }
+            
+              reader.readAsDataURL(this.files[0]); 
+             
+             });
+    
+    $('.image2').change(function(){
+    
+    let reader = new FileReader();
+    
+    reader.onload = (e) => { 
+    
+    $('.preview-image-before-upload2').attr('src', e.target.result); 
+    }
+    
+    reader.readAsDataURL(this.files[0]); 
+    
     });
+    
+    $('.image3').change(function(){
+              
+              let reader = new FileReader();
+            
+              reader.onload = (e) => { 
+            
+                $('.preview-image-before-upload3').attr('src', e.target.result); 
+              }
+            
+              reader.readAsDataURL(this.files[0]); 
+             
+             });
+    $('.image4').change(function(){
+              
+              let reader = new FileReader();
+            
+              reader.onload = (e) => { 
+            
+                $('.preview-image-before-upload4').attr('src', e.target.result); 
+              }
+            
+              reader.readAsDataURL(this.files[0]); 
+             
+             });
+     
+    });
+    
     </script>
 @endsection

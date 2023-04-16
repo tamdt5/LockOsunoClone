@@ -54,7 +54,7 @@ href="{{ asset('admin/plugins/fontawesome-free/css/all.min.css') }}"
 <p><span>Hotline: 19009292</span></p>
 </a></li><li class="cart-item has-icon">
 
-<a href="https://osuno.com.vn/gio-hang/" title="Giỏ hàng" class="header-cart-link is-small">
+<a href="{{route('website.cart')}}" title="Giỏ hàng" class="header-cart-link is-small">
 
 
 
@@ -75,7 +75,7 @@ Giỏ hàng     </span>
         <ul class="mobile-nav nav nav-right ">
           <li class="cart-item has-icon">
 
-  <a href="https://osuno.com.vn/gio-hang/" title="Giỏ hàng" class="header-cart-link is-small">
+  <a href="{{route('website.cart')}}" title="Giỏ hàng" class="header-cart-link is-small">
 
         <i class="icon-shopping-cart" data-icon-label="0">
     </i>
@@ -105,12 +105,12 @@ Giỏ hàng     </span>
        </div>
        <div class="flex-col hide-for-medium flex-right flex-grow">
           <ul class="nav header-nav header-bottom-nav nav-right  nav-size-large">
-             <li id="menu-item-2975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-2975 active"><a href="https://osuno.com.vn/" aria-current="page" class="nav-top-link">Trang chủ</a></li>
-             <li id="menu-item-2977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977"><a href="https://osuno.com.vn/gioi-thieu-cong-tnhh-phat-trien-cong-nghe-long-tien-hai/" class="nav-top-link">Giới thiệu</a></li>
-             <li id="menu-item-2979" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2979"><a href="https://osuno.com.vn/category/tin-tuc/" class="nav-top-link">Tin tức</a></li>
-             <li id="menu-item-3427" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3427"><a href="https://osuno.com.vn/category/video/" class="nav-top-link">Video</a></li>
-             <li id="menu-item-2980" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2980"><a href="https://osuno.com.vn/category/tuyen-dung/" class="nav-top-link">Tuyển dụng</a></li>
-             <li id="menu-item-4355" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4355"><a href="https://osuno.com.vn/category/ho-tro-ky-thuat/" class="nav-top-link">Hỗ trợ kỹ thuật</a></li>
+             <li id="menu-item-2975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-2975 active"><a href="{{route('website.index')}}" aria-current="page" class="nav-top-link">Trang chủ</a></li>
+             <li id="menu-item-2977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977"><a href="{{route('website.gioithieu')}}" class="nav-top-link">Giới thiệu</a></li>
+             <li id="menu-item-2979" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2979"><a href="{{route('website.categoryNews',['type' => 'tintuc'])}}" class="nav-top-link">Tin tức</a></li>
+             <li id="menu-item-3427" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3427"><a href="{{route('website.categoryNews',['type' => 'video'])}}" class="nav-top-link">Video</a></li>
+             <li id="menu-item-2980" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2980"><a href="{{route('website.categoryNews',['type' => 'tuyendung'])}}" class="nav-top-link">Tuyển dụng</a></li>
+             <li id="menu-item-4355" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4355"><a href="{{route('website.categoryNews',['type' => 'tintuc'])}}" class="nav-top-link">Hỗ trợ kỹ thuật</a></li>
              <!-- GTranslate: https://gtranslate.io/ -->
              <li style="position:relative;" class="menu-item menu-item-gtranslate"><a href="#" onclick="doGTranslate('vi|en');return false;" title="English" class="glink nturl notranslate"><img src="//osuno.com.vn/wp-content/plugins/gtranslate/flags/svg/en-us.svg" height="32" width="32" alt="English"></a></li>
              <li style="position:relative;" class="menu-item menu-item-gtranslate"><a href="#" onclick="doGTranslate('vi|vi');return false;" title="Vietnamese" class="glink nturl notranslate"><img src="//osuno.com.vn/wp-content/plugins/gtranslate/flags/svg/vi.svg" height="32" width="32" alt="Vietnamese"></a></li>

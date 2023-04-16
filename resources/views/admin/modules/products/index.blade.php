@@ -46,9 +46,6 @@
             <th>ID</th>
             <th>Tên sản phẩm</th>
             <th>Thể Loại</th>
-            <th>Đánh giá</th>
-            <th>Đã Bán</th>
-            <th>Tồn kho</th>
             <th>Giá sản phẩm</th>
             <th>Sửa</th>
             <th>Xóa</th>
@@ -60,33 +57,15 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{ $item->tensanpham}}</td>
             <td>{{ $item->tentheloai}}</td>
-            <td>
-              @if($item->danhgia==1)
-                  <i class="fa-solid fa-star" ></i>
-                  @php echo "<span style='font-style:italic'>".$item->luotdanhgia ." lượt đánh giá </span>"; @endphp
-              @endif 
-              @if($item->danhgia==2)
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                  @php echo "<span style='font-style:italic'>".$item->luotdanhgia ." lượt đánh giá </span>"; @endphp
-              @endif
-              @if($item->danhgia==3)
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star" ></i>
-                  @php echo "<span style='font-style:italic'>".$item->luotdanhgia ." lượt đánh giá </span>"; @endphp
-              @endif
-              @if($item->danhgia==4)
-                  <i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" ></i><i class="fa-solid fa-star" ></i>
-                  @php echo "<span style='font-style:italic'>".$item->luotdanhgia ." lượt đánh giá </span>"; @endphp
-              @endif
-              @if($item->danhgia==5)
-                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star" ></i>
-                  @php echo "<span style='font-style:italic'>".$item->luotdanhgia ." lượt đánh giá </span>"; @endphp
-              @endif
-            </td>
-            <td>{{ $item->daban}}</td>
-            <td>{{ $item->tonkho}}</td>
-           
-            <td> @php
-             echo number_format($item->giasanpham,0); @endphp</td>
+            <td> @php 
+            if($item->giasanpham=='0')
+            {
+              echo "Liên hệ";
+            }
+            else {
+             echo number_format($item->giasanpham,0); 
+            }
+             @endphp</td>
             <td style="width:1%;">
               <button type="button" class="btn btn-warning" ><a style="color:black;" href="{{route('admin.products.edit', ['id' => $item->productid]) }}">Edit</a></button>
             </td>

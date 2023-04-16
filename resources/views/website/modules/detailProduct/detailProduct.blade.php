@@ -31,7 +31,7 @@
               <!-- Logo -->
               <div id="logo" class="flex-col logo">
                 <!-- Header logo -->
-                <a href="https://osuno.com.vn/" title="Khóa Cửa Thông Minh Osuno - Khóa Cửa Vân Tay" rel="home">
+                <a href="{{route('website.index')}}" title="Khóa Cửa Thông Minh Osuno - Khóa Cửa Vân Tay" rel="home">
                   <img width="220" height="100" src="https://osuno.com.vn/wp-content/uploads/OSUNO-logo.png" class="header_logo header-logo logo-desktop" alt="Khóa Cửa Thông Minh Osuno">
                   <img width="220" height="100" src="https://osuno.com.vn/wp-content/uploads/220x50.png" class="header_logo header-logo logo-mobile" alt="Khóa Cửa Thông Minh Osuno">
                   <img width="220" height="100" src="https://osuno.com.vn/wp-content/uploads/OSUNO-logo.png" class="header-logo-dark" alt="Khóa Cửa Thông Minh Osuno">
@@ -75,17 +75,15 @@
                 <ul class="header-nav header-nav-main nav nav-right  nav-uppercase">
                   <li class="html custom html_topbar_left">
                     <a href="tel:19009292">
-                      <div class="icon">
-                        <i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-                      </div>
+                        <i class="fa fa-phone" style="font-size:20px;"aria-hidden="true"></i>
                       <p>
                         <span>Hotline: 19009292</span>
                       </p>
                     </a>
                   </li>
                   <li class="cart-item has-icon">
-                    <a href="https://osuno.com.vn/gio-hang/" title="Giỏ hàng" class="header-cart-link is-small">
-                      <i class="icon-shopping-cart" data-icon-label="0"></i>
+                    <a href="{{route('website.cart')}}" title="Giỏ hàng" class="header-cart-link is-small">
+                      <i class="fas fa-shopping-cart" style="font-size:20px;" data-icon-label="0"></i>
                       <span class="header-cart-title"> Giỏ hàng </span>
                     </a>
                   </li>
@@ -95,7 +93,7 @@
               <div class="flex-col show-for-medium flex-right">
                 <ul class="mobile-nav nav nav-right ">
                   <li class="cart-item has-icon">
-                    <a href="https://osuno.com.vn/gio-hang/" title="Giỏ hàng" class="header-cart-link is-small">
+                    <a href="{{route('website.cart')}}" title="Giỏ hàng" class="header-cart-link is-small">
                       <i class="icon-shopping-cart" data-icon-label="0"></i>
                     </a>
                   </li>
@@ -122,22 +120,22 @@
               <div class="flex-col hide-for-medium flex-right flex-grow">
                 <ul class="nav header-nav header-bottom-nav nav-right  nav-size-large">
                   <li id="menu-item-2975" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-2975">
-                    <a href="https://osuno.com.vn/" class="nav-top-link">Trang chủ</a>
+                    <a href="{{route('website.index')}}" class="nav-top-link">Trang chủ</a>
                   </li>
                   <li id="menu-item-2977" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2977">
-                    <a href="https://osuno.com.vn/gioi-thieu-cong-tnhh-phat-trien-cong-nghe-long-tien-hai/" class="nav-top-link">Giới thiệu</a>
+                    <a href="{{route('website.gioithieu')}}" class="nav-top-link">Giới thiệu</a>
                   </li>
                   <li id="menu-item-2979" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2979">
-                    <a href="https://osuno.com.vn/category/tin-tuc/" class="nav-top-link">Tin tức</a>
+                    <a href="{{route('website.categoryNews',['type' => 'tintuc'])}}" class="nav-top-link">Tin tức</a>
                   </li>
                   <li id="menu-item-3427" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3427">
-                    <a href="https://osuno.com.vn/category/video/" class="nav-top-link">Video</a>
+                    <a href="{{route('website.categoryNews',['type' => 'video'])}}" class="nav-top-link">Video</a>
                   </li>
                   <li id="menu-item-2980" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2980">
-                    <a href="https://osuno.com.vn/category/tuyen-dung/" class="nav-top-link">Tuyển dụng</a>
+                    <a href="{{route('website.categoryNews',['type' => 'tuyendung'])}}" class="nav-top-link">Tuyển dụng</a>
                   </li>
                   <li id="menu-item-4355" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4355">
-                    <a href="https://osuno.com.vn/category/ho-tro-ky-thuat/" class="nav-top-link">Hỗ trợ kỹ thuật</a>
+                    <a href="{{route('website.categoryNews',['type' => 'tintuc'])}}" class="nav-top-link">Hỗ trợ kỹ thuật</a>
                   </li>
                   <!-- GTranslate: https://gtranslate.io/ -->
                   <li style="position:relative;" class="menu-item menu-item-gtranslate">
@@ -373,13 +371,7 @@
               </div>
             </div>
           </div>
-		  @if (Session::get('success'))
-          <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-check"></i> Alert!</h5>
-            {{ Session::get('success') }}
-          </div>
-	@endif
+		 
           <div class="header-bg-container fill">
             <div class="header-bg-image fill"></div>
             <div class="header-bg-color fill"></div>
@@ -393,17 +385,40 @@
               <nav class="woocommerce-breadcrumb breadcrumbs uppercase">
                 <a href="{{route('website.index')}}">Trang chủ</a>
                 <span class="divider">/</span>
-                <a href="https://osuno.com.vn/mua/">Cửa hàng</a>
+                <a href="{{route('website.sanphambanchay')}}">Cửa hàng</a>
                 <span class="divider">/</span>
-                <a href="{{route('website.detailCategory',[$sanpham->tentheloai])}}">Khóa cửa thông minh</a>
+                <a href="{{route('website.detailCategory',[$sanpham->tentheloai])}}">{{$sanpham->tentheloai}}</a>
                 <span class="divider">/</span>
-                <a href="https://osuno.com.vn/danh-muc-san-pham/khoa-cua-thong-minh/mo-bang-van-tay-ma-so-the-tu-chia-co/">Mở bằng vân tay, mã số, thẻ từ, chìa cơ</a>
+                <a href="{{route('website.detailProduct',[$sanpham->tensanpham])}}">{{$sanpham->tensanpham}}</a>
               </nav>
             </div>
           </div>
           <div class="flex-col medium-text-center"></div>
         </div>
       </div>
+      @if ($errors->any())
+          <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5 style="color:white;font-weight:700;font-size:19px;"><i class="icon fas fa-ban"></i> Alert!</h5>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+          </div>
+          @endif
+    @if (Session::get('cskh_success'))
+    <div class="alert alert-success alert-dismissible" style="background-color: green;">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h5 style="color:white;font-weight:700;font-size:19px;"><i class="icon fas fa-check" style="color:white;font-weight:700;font-size:19px;"></i> Đăng đánh giá thành công</h5>
+      {{ Session::get('cskh_success') }}
+    </div>
+    @endif
+      @if (Session::get('feedback_success'))
+      <div class="alert alert-success alert-dismissible" style="background-color: green;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h5 style="color:white;font-weight:700;font-size:19px;"><i class="icon fas fa-check" style="color:white;font-weight:700;font-size:19px;"></i> Đăng đánh giá thành công</h5>
+        {{ Session::get('feedback_success') }}
+      </div>
+@endif
       <main id="main" class="">
         <div class="shop-container">
           <div class="container">
@@ -463,11 +478,6 @@
                           </svg>
                         </button>
                       </figure>
-                      <div class="image-tools absolute bottom left z-3">
-                        <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small tooltipstered">
-                          <i class="icon-expand"></i>
-                        </a>
-                      </div>
                     </div>
                     <div class="product-thumbnails thumbnails slider row row-small row-slider slider-nav-small small-columns-4 flickity-enabled is-draggable" data-flickity-options="{
               &quot;cellAlign&quot;: &quot;left&quot;,
@@ -555,19 +565,22 @@
                         <span style="width:100%">
                           @php
                             $i=0;
-                            $count=$sanpham->danhgia;
+                            $count=$averageStar;
                             do {
                                 echo "<i class='fas fa-star'></i>";
                                 $i++;
                             } while ($i<$count); 
                           @endphp
                       </div>
-                      <a href="#reviews_summary" class="woocommerce-review-link" rel="nofollow"> ( <span class="count">{{$sanpham->luotdanhgia}}</span> khách hàng đánh giá ) </a>
+                      <a href="#reviews_summary" class="woocommerce-review-link" rel="nofollow"> ( <span class="count">{{$countingRater}}</span> khách hàng đánh giá ) </a>
                     </div>
                     <div class="price-wrapper">
                       <p class="price product-page-price " style="font-size:26px;color:black;font-weight::700"> Giá: {{number_format($sanpham->giasanpham).'đ'}}</p>
                     </div>
                     <div class="lienhe-sing">
+                      <form class="cart" action="{{route('website.addtoCart',['id'=>$sanpham->prodid])}}" method="get" enctype="multipart/form-data">
+                        <button type="submit" name="add-to-cart" value="5323" class="single_add_to_cart_button button alt">Mua ngay</button>
+                      </form>
                       <a class="telme" href="tel:19009292">
                         <b>Liên hệ trực tiếp 19009292</b>
                         <span>Để có giá tốt nhất</span>
@@ -631,22 +644,17 @@
                         <p role="status" aria-live="polite" aria-atomic="true"></p>
                         <ul></ul>
                       </div>
-                      <form action="/mua/khoa-thong-minh-cho-biet-thu-osn3362-cong-nghe-hang-dau-nhat-ban/#wpcf7-f2928-p243-o2" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
-                        <div style="display: none;">
-                          <input type="hidden" name="_wpcf7" value="2928">
-                          <input type="hidden" name="_wpcf7_version" value="5.3">
-                          <input type="hidden" name="_wpcf7_locale" value="vi">
-                          <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2928-p243-o2">
-                          <input type="hidden" name="_wpcf7_container_post" value="243">
-                          <input type="hidden" name="_wpcf7_posted_data_hash" value="">
-                        </div>
+                      <form action="{{route('website.cskh')}}" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+                        @csrf
                         <div class="box_support">
                           <p class="hotline">CHƯƠNG TRÌNH KHUYẾN MÃI</p>
                           <p class="value"></p>
                           <div class="product-call-requests">
                             <label class="group__title">
-                              <span class="wpcf7-form-control-wrap sdt">
-                                <input type="tel" name="sdt" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Nhập số điện thoại">
+                              <span class="">
+                                <input type="tel" name="sdt" value="" size="40"  aria-required="true" aria-invalid="false" placeholder="Nhập số điện thoại">
+                                <input type="text" name="sanpham" value="{{$sanpham->id}}" style="display:none;">
+                                <input type="text" name="tensanpham" value="{{$sanpham->tensanpham}}" style="display:none;">
                               </span>
                             </label>
                             <p></p>
@@ -781,11 +789,22 @@
                               </div>
                               <div class="">
                                 @php
+                                  if($countingRater)
+                                  {
                                     $widthPercent5 = ($countingStar['5'] / $countingRater)*100;
                                     $widthPercent4 = ($countingStar['4'] / $countingRater)*100;
                                     $widthPercent3 = ($countingStar['3'] / $countingRater)*100;
                                     $widthPercent2 = ($countingStar['2'] / $countingRater)*100;
                                     $widthPercent1 = ($countingStar['1'] / $countingRater)*100;
+                                  }
+                                  else
+                                  {
+                                    $widthPercent5 = 0;
+                                    $widthPercent4 = 0;
+                                    $widthPercent3 = 0;
+                                    $widthPercent2 = 0;
+                                    $widthPercent1 = 0;
+                                  }
                                 @endphp
                                 <div class="ywar_review_row">
                                     <div class=""> 5 sao ({{$countingStar['5']}} người)
@@ -912,7 +931,7 @@
                                     <p class="upload_section ">
                                       <label for="ywar-uploadFile"> Ảnh </label>
                                       <input type="file" name="image" value="Chọn ảnh" >
-                                      <input name="sanpham" value="{{$sanpham->prodid}}"style="display:none;" >
+                                      <input name="sanpham" value="{{$sanpham->prodid}}" style="display:none;" required>
                                       <span class="">Sử dụng một trong các loại tệp được phép:jpg,png. Kích thước tối đa được phép là:2 MB.</span>
                                     </p>
                                     <p></p>

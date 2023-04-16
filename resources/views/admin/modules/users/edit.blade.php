@@ -3,7 +3,7 @@
 @section('action', 'Xem thông tin')
 
 @section('content')
-<form action="{{ route('admin.users.store')}}" method="post" enctype="multipart/form-data">
+<form action="{{ route('admin.users.update', ['id' => $user->id]) }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="card">
         <div class="card-header">

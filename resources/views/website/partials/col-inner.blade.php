@@ -32,7 +32,7 @@
                       <div class="flickity-viewport" style="height: 368.641px; touch-action: pan-y;">
                          <div class="flickity-slider" style="left: 0px; transform: translateX(0%);">
                             <div class="img has-hover x md-x lg-x y md-y lg-y is-selected" id="image_1102165661" aria-selected="true" style="position: absolute; left: 0%;">
-                               <a class="" href="https://osuno.com.vn/danh-muc-san-pham/khoa-can-ho-mat-dat-chung-cu/">
+                               <a class="" href="{{route('website.index')}}">
                                   <div class="img-inner image-cover dark" style="padding-top:39%;margin:0px 0px 1px 0px;">
                                      <img width="1536" height="592" src="https://osuno.com.vn/wp-content/uploads/khoa-nhan-dien-khuon-mat-osuno.png" class="attachment-original size-original" alt="" decoding="async" loading="lazy" srcset="https://osuno.com.vn/wp-content/uploads/khoa-nhan-dien-khuon-mat-osuno.png 1536w, https://osuno.com.vn/wp-content/uploads/khoa-nhan-dien-khuon-mat-osuno-600x231.png 600w, https://osuno.com.vn/wp-content/uploads/khoa-nhan-dien-khuon-mat-osuno-300x116.png 300w, https://osuno.com.vn/wp-content/uploads/khoa-nhan-dien-khuon-mat-osuno-1024x395.png 1024w, https://osuno.com.vn/wp-content/uploads/khoa-nhan-dien-khuon-mat-osuno-150x58.png 150w, https://osuno.com.vn/wp-content/uploads/khoa-nhan-dien-khuon-mat-osuno-768x296.png 768w" sizes="(max-width: 1536px) 100vw, 1536px">						
                                   </div>
